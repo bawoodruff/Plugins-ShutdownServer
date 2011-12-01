@@ -1,0 +1,4 @@
+name: ShutdownServer
+main: org.woodruffs.Bukkit.ShutdownServer.Plugin
+version: 1.00
+commands:
