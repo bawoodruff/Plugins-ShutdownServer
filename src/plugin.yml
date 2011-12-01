@@ -1,4 +1,4 @@
 name: ShutdownServer
-main: org.woodruffs.Bukkit.ShutdownServer.Plugin
+main: org.woodruffs.CraftBukkit.ShutdownServer.Plugin
 version: 1.00
 commands:

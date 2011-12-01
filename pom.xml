@@ -26,7 +26,7 @@
         <configuration>
           <archive>
             <manifestEntries>
-              <Main-Class>org.woodruffs.craftbukkit.ShutdownServer.Plugin</Main-Class>
+              <Main-Class>org.woodruffs.CraftBukkit.ShutdownServer.Plugin</Main-Class>
               <Implementation-Title>ShutdownServer</Implementation-Title>
               <Implementation-Version>${describe}</Implementation-Version>
               <Implementation-Vendor>Bryan A Woodruff</Implementation-Vendor>
