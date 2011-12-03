@@ -2,8 +2,6 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.woodruffs</groupId>
-  <artifactId>shutdown-server</artifactId>
-  <packaging>jar</packaging>
   <version>1.0.0</version>
   <name>ShutdownServer</name>
   <url>http://www.woodruffs.org</url>
@@ -15,56 +13,17 @@
     <developerConnection>scm:git:https://github.com/bawoodruff/Plugins-ShutdownServer/ShutdownServer.git</developerConnection>
     <url>https://github.com/bawoodruff/Plugins-ShutdownServer</url>
   </scm>
-  <!-- This builds a completely 'ready to start' jar with all dependencies inside -->
   <build>
-    <defaultGoal>clean install</defaultGoal>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <version>2.1</version>
-        <configuration>
-          <archive>
-            <manifestEntries>
-              <Main-Class>org.woodruffs.CraftBukkit.ShutdownServer.Plugin</Main-Class>
-              <Implementation-Title>ShutdownServer</Implementation-Title>
-              <Implementation-Version>${describe}</Implementation-Version>
-              <Implementation-Vendor>Bryan A Woodruff</Implementation-Vendor>
-              <Specification-Title>ShutdownServer</Specification-Title>
-              <Specification-Version>${api.version}</Specification-Version>
-              <Specification-Vendor>Bryan A. Woodruff</Specification-Vendor>
-              <Sealed>true</Sealed>
-            </manifestEntries>
-            <manifestSections>
-              <manifestSection>
-                <name>org/woodruffs/</name>
-                <manifestEntries>
-                  <Sealed>true</Sealed>
-                </manifestEntries>
-              </manifestSection>
-            </manifestSections>
-          </archive>
-        </configuration>
        </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <version>1.4</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <configuration>
-              <artifactSet>
-                <excludes>
-                  <exclude>junit:junit</exclude>
-                </excludes>
-              </artifactSet>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -108,5 +67,18 @@
     	</plugins>
     </pluginManagement>
   </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.bukkit</groupId>
+  		<artifactId>bukkit</artifactId>
+  		<version>1.0.0-R1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.bukkit</groupId>
+  		<artifactId>craftbukkit</artifactId>
+  		<version>1.0.0-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+  <artifactId>org.woodruffs.CraftBukkit.ShutdownServer</artifactId>
 </project>
 

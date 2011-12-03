@@ -1,23 +1,21 @@
 package org.woodruffs.CraftBukkit.ShutdownServer;
 
-import net.minecraft.server.MinecraftServer;
-
-import org.bukkit.Server;
+import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Plugin extends JavaPlugin 
 {
-	static private Server server = null;
+	static private CraftServer server = null;
 	static private boolean isEnabled = false;
 	
 	static public void shutdown()
 	{
 		if (isEnabled && (null != server))
 		{		
-			server.getLogger().info("[ShutdownServer] shutting down server.");
+			System.out.println("[ShutdownServer] shutting down server.");
 		
-			((MinecraftServer)server).safeShutdown();
+			server.shutdown();
 			server = null;
 		}
 	}
@@ -30,7 +28,7 @@ public class Plugin extends JavaPlugin
 	
 	public void onEnable() 
 	{		
-		server = this.getServer();
+		server = (CraftServer) this.getServer();
 		isEnabled = true;
 		PluginDescriptionFile pdfFile = this.getDescription();
 		System.out.println("[ShutdownServer] v" + pdfFile.getVersion() + " enabled.");		        
